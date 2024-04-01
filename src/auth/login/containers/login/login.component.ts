@@ -4,10 +4,16 @@ import {Component} from '@angular/core';
   selector: 'login',
   styleUrls: ['login.component.scss'],
   template: `
-  <div>
-    Login
-    <auth-form></auth-form>
-  </div>
+    <div>
+      Login
+      <auth-form>
+        <h1>Login</h1>
+        <a routerLink="/auth/register">Not Registered?</a>
+        <button class="btn btn-primary" type="submit">
+          Login
+        </button>
+      </auth-form>
+    </div>
   `
 })
 
