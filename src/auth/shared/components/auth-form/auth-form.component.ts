@@ -18,9 +18,9 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
                        formControlName="email">
                 <label class="form-label" for="password">password</label>
                 <div class="error text-danger" *ngIf="passwordInvalid">password required</div>
-                <input class="form-control mb-4" name="password" type="text" placeholder="enter password"
+                <input class="form-control mb-4" name="password" type="password" placeholder="enter password"
                        formControlName="password">
-                <ng-content select="error"></ng-content>
+                <ng-content select=".error"></ng-content>
                 <div class="auth-form-action mb-2">
                   <ng-content select="button"></ng-content>
                 </div>

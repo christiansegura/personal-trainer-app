@@ -9,9 +9,15 @@ import {AuthService} from './services/auth/auth.service';
     ReactiveFormsModule
   ],
   declarations: [AuthFormComponent],
-  providers: [AuthService],
+  providers: [],
   exports: [AuthFormComponent]
 })
 
 export class SharedModule {
+  static forRoot(): ModuleWithProviders<SharedModule> {
+    return {
+      ngModule: SharedModule,
+      providers: [AuthService]
+    }
+  }
 }

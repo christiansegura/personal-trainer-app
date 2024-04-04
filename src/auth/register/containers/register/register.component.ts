@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 import {FormGroup} from '@angular/forms';
+import {AuthService} from '../../../shared/services/auth/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'register',
@@ -10,15 +12,27 @@ import {FormGroup} from '@angular/forms';
     <button class="btn btn-primary" type="submit">
       Create Account
     </button>
+    <div class="error text-danger mb-4" *ngIf="error">{{error}}</div>
   </auth-form>
   `
 })
 
 export class RegisterComponent {
-  constructor() {
+  error = '';
+  constructor(private authService: AuthService, private router: Router) {
 
   }
-  registerUser(event: FormGroup){
-    console.log(event.value);
+  async registerUser(event: FormGroup){
+    const {email, password} = event.value;
+    try {
+    await this.authService.createUser(email, password);
+      this.router.navigate(['/']);
+    } catch (err: unknown) {
+      // The only type annotations that are allowed on catch clause variables are any or unknown
+      if (err instanceof Error) {
+        this.error = err.message;
+        console.log(err);
+      }
+    }
   }
 }

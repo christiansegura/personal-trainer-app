@@ -49,7 +49,8 @@ const app = firebaseConfig;
     AngularFireModule.initializeApp(app),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    SharedModule
+    SharedModule.forRoot()
+    // supposed to avoid a duplicate instance of this service with forRoot
   ],
   declarations: [],
   providers: []
