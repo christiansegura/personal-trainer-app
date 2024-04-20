@@ -3,11 +3,13 @@ import {State, Store} from 'store';
 import {AuthService, User} from '../auth/shared/services/auth/auth.service';
 import {Observable, Subscription} from 'rxjs';
 
+
 @Component({
   selector: 'app-root',
   styleUrls: ['./app.component.scss'],
   template: `
-    <h1>{{user$ | async | json}}</h1>
+    <app-header></app-header>
+    <app-nav></app-nav>
   <div class="wrapper">
     <router-outlet></router-outlet>
   </div>
