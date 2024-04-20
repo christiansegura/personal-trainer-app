@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Store} from 'store';
+import {State, Store} from 'store';
 import {AuthService, User} from '../auth/shared/services/auth/auth.service';
 import {Observable, Subscription} from 'rxjs';
 
@@ -7,7 +7,7 @@ import {Observable, Subscription} from 'rxjs';
   selector: 'app-root',
   styleUrls: ['./app.component.scss'],
   template: `
-    <h1>{{user$ | async |json}}</h1>
+    <h1>{{user$ | async | json}}</h1>
   <div class="wrapper">
     <router-outlet></router-outlet>
   </div>
@@ -15,8 +15,8 @@ import {Observable, Subscription} from 'rxjs';
 })
 export class AppComponent implements OnInit, OnDestroy{
   title = 'personal-trainer-app';
-  user$ = Observable<User>;
-  subscription: Subscription;
+  user$: Observable<State> = new Observable();
+  subscription: Subscription = new Subscription();
 
   constructor(private store: Store, private authService: AuthService) {
   }
