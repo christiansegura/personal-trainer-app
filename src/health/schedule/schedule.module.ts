@@ -9,7 +9,8 @@ export const ROUTES: Routes = [
 ];
 @NgModule({
   imports: [CommonModule, ReactiveFormsModule, RouterModule.forChild(ROUTES)],
-  declarations: [ScheduleComponent]
+  declarations: [ScheduleComponent],
+  providers: []
 })
 
 export class ScheduleModule {}

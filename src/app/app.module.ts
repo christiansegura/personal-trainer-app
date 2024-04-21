@@ -8,6 +8,11 @@ import {AuthModule} from '../auth/auth.module';
 import {HealthModule} from '../health/health.module';
 import {Store} from 'store';
 import {AppNavComponent} from './components/app-nav/app-nav.component';
+import {RouterModule, Routes} from '@angular/router';
+
+export const ROUTES:Routes = [
+  {path: '', pathMatch: 'full', redirectTo: 'schedule'}
+];
 
 @NgModule({
   declarations: [
@@ -18,7 +23,8 @@ import {AppNavComponent} from './components/app-nav/app-nav.component';
     BrowserModule,
     AppRoutingModule,
     AuthModule,
-    HealthModule
+    HealthModule,
+    RouterModule.forRoot(ROUTES)
   ],
   providers: [Store],
   bootstrap: [AppComponent]
